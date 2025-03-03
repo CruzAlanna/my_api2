@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  skip_before_action :authorize_request, except: [:destroy]
   def index
     cats = Cat.all
     render json: cats
@@ -13,7 +14,7 @@ class CatsController < ApplicationController
   end
 
   def create
-    cat = Cat.create(name: "Garfield")
+    cat = Cat.create(name: params[:name])
     render json: cat
   end
 
@@ -29,6 +30,9 @@ class CatsController < ApplicationController
     cat = Cat.find(params[:id])
     cat.destroy
     cats = Cat.all
+    puts "------------------"
+    puts @current_user.name
+    puts "------------------"
     render :no_content
   end
 end

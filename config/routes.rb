@@ -15,11 +15,17 @@ Rails.application.routes.draw do
   delete '/cats/:id' => 'cats#destroy'
 
   get '/students' => 'students#index'
+  get '/students/:id' => 'students#show'
   post '/students' => 'students#create'
 
   get '/teachers' => 'teachers#index'
   post '/teachers' => 'teachers#create'
   patch '/teachers/:id' => 'teachers#update'
+
+  post '/login' => 'sessions#create'
+
+  get '/users' => 'users#index'
+  post '/users' => 'users#create'
 end
 #Model = always capitalized, singular
 #Controllers = always lowercase, plural

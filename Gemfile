@@ -12,6 +12,9 @@ gem "puma", ">= 5.0"
 #Creates fake data /// everytime you add a gem you have to run bundle install
 gem 'faker'
 
+gem 'bcrypt' # For hashing passwords securely
+gem 'jwt' # For generating JSON Web Tokens
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
