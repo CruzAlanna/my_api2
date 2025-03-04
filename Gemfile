@@ -15,6 +15,8 @@ gem 'faker'
 gem 'bcrypt' # For hashing passwords securely
 gem 'jwt' # For generating JSON Web Tokens
 
+gem 'pundit' #to help set up roles
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

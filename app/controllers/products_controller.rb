@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  skip_before_action :authorize_request, only: [:index, :show]
+  #skip_before_action :authorize_request, only: [:index, :show]
   
   def index
-    products = Product.all
+    products = policy_scope(Product) #product_policy.rb -scope#resolve
     render json: products
   end
   

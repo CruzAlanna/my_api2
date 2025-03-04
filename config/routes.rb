@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
   post '/users' => 'users#create'
+  patch '/users/:id' => 'users#promote'
+  delete '/users/:id' => 'users#destroy'
 end
 #Model = always capitalized, singular
 #Controllers = always lowercase, plural

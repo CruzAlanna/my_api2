@@ -11,3 +11,24 @@ Teacher.create!(name: "Steven Johnson", subject: "Natural Sciences")
 end
 
 puts "#{Student.count} students created"
+
+
+i = 1
+5.times do 
+  Product.create(
+    name: "t-product #{i}",
+    price: 100,
+    published: true
+  )
+  i += 1 
+end
+
+i = 1
+5.times do 
+  Product.create(
+    name: "f-product #{i}",
+    price: 50,
+    published: false
+  )
+  i += 1 
+end

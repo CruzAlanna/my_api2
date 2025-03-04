@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
-  skip_before_action :authorize_request, only: [:index] #if you want more to have access do --> [:index, :create], use a comma
+  # skip_before_action :authorize_request, only: [:index] #if you want more to have access do --> [:index, :create], use a comma
 
   def index
-    students = Student.all
+    students = policy_scope(Student)
     render json: students
   end
 
@@ -19,3 +19,4 @@ class StudentsController < ApplicationController
     render json: student
   end
 end
+

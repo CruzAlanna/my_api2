@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::API
+  include Pundit
+  # Rescue from Pundit errors
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   # 1. Call authorize_request before every controller action by default
   before_action :authorize_request
 
@@ -17,5 +21,11 @@ class ApplicationController < ActionController::API
   # 3. Helper method so we can reference @current_user anywhere
   def current_user
     @current_user
+  end
+
+  private
+
+  def user_not_authorized
+    render json: { error: 'You are not authorized to perform this action.'}, status: :forbidden
   end
 end
